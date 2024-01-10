@@ -34,8 +34,20 @@ module.exports = {
     },
   },
   ignorePatterns: ["node_modules/", "dist/", ".eslintrc.js", "**/*.css"],
+  plugins: ["unicorn"],
   // add rules configurations here
   rules: {
     "import/no-default-export": "off",
+    //NOTE - Disable the kebab-case error by only allowing file names to be camelCase or PascalCase
+    //LINK - https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v48.0.1/docs/rules/filename-case.md
+    "unicorn/filename-case": [
+      "error",
+      {
+        cases: {
+          camelCase: true,
+          pascalCase: true,
+        },
+      },
+    ],
   },
 };
